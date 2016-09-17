@@ -37,14 +37,25 @@ $("#topContacts").append(formattedLinkedin);
 $("#topContacts").append(formattedLocation);
 
 //Bio section: array of skills we want displayed.
-var skils = ["Project Management", "CRM", "Data Analysis", "SQL", "Ruby", "VBA", "HTML", "CSS", "JS"];
+var skills = ["Project Management", "CRM", "Data Analysis", "SQL", "Ruby", "VBA", "HTML", "CSS", "JS"];
 
 //This object contains contact info that will be appended to id topContacts. Will play with elminating the name and role variables from lines 6 and 7 and replacing with values from this object.
 var bio = {
 	"name": "Jacob Garrison",
 	"role": "Web Developer",
 	"contactInfo": contactInfoHash,
-	"skills": skils,
-	"welcomeMessage": "Welcome!",
+	"skills": skills,
+	"welcomeMessage": "Welcome to my resume!",
 	"picture": "images/fry.jpg"
 };
+
+//Create varibles to utilize html written in helper.js
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+var formattedSkills = HTMLskills.replace("%data%", bio.skills)
+
+//append welcome message and bio information to the header container after the topContacts element.
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomeMsg);
+$("#header").append(HTMLskillsStart);
+$("#skills").append(formattedSkills);
