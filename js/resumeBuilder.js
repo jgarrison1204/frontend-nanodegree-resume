@@ -36,4 +36,15 @@ $("#topContacts").append(formattedGithub);
 $("#topContacts").append(formattedLinkedin);
 $("#topContacts").append(formattedLocation);
 
+//Bio section: array of skills we want displayed.
+var skils = ["Project Management", "CRM", "Data Analysis", "SQL", "Ruby", "VBA", "HTML", "CSS", "JS"];
 
+//This object contains contact info that will be appended to id topContacts. Will play with elminating the name and role variables from lines 6 and 7 and replacing with values from this object.
+var bio = {
+	"name": "Jacob Garrison",
+	"role": "Web Developer",
+	"contactInfo": contactInfoHash,
+	"skills": skils,
+	"welcomeMessage": "Welcome!",
+	"picture": "images/fry.jpg"
+};
