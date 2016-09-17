@@ -17,15 +17,23 @@ $("#header").prepend(formattedName);
 var contactInfoHash = {
 	"email": "jgarrison1204@gmail.com",
 	"mobile": "818-970-7261",
-	"github":  "https://github.com/jgarrison1204",
-	"linkedin": "Jacob Garrison",
+	"github":  "jgarrison1204",
+	"twitter": "@jg1204",
 	"location": "Los Angeles"
 };
 
+//creating variables to replace "%data%" text in HTML located in helper.js file.
 var formattedMobile = HTMLmobile.replace("%data%", contactInfoHash.mobile);
 var formattedEmail = HTMLemail.replace("%data%", contactInfoHash.email);
+var formattedGithub = HTMLgithub.replace("%data%", contactInfoHash.github);
+var formattedLinkedin = HTMLtwitter.replace("%data%", contactInfoHash.twitter);
+var formattedLocation = HTMLlocation.replace("%data%", contactInfoHash.location);
 
+//append contact information to the topContacts <ol> element after the h2 element in the header container.
 $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedGithub);
+$("#topContacts").append(formattedLinkedin);
+$("#topContacts").append(formattedLocation);
 
 
