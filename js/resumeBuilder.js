@@ -59,3 +59,36 @@ $("#header").append(formattedBioPic);
 $("#header").append(formattedWelcomeMsg);
 $("#header").append(HTMLskillsStart);
 $("#skills").append(formattedSkills);
+
+//objects for work and employment sections of resume
+var work = {
+	"startDate": "February 2014",
+	"jobTitle": "Senior Data Analyst",
+	"employer": "California State University, Los Angeles",
+	"yearsWorked": "2014-2016",
+	"employerCity": "Los Angeles"
+};
+
+
+//Create varibles to utilize html written in helper.js
+var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employer);
+var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobTitle);
+						
+
+$("#workExperience").append(HTMLworkStart);
+$(".work-entry").append(formattedEmployer,formattedJobTitle);
+
+//Education Section
+var education = {
+	"lastSchool": "University of Chicago - Masters",
+	"datesAttended": "2008-2009",
+	"schoolCity": "Chicago"
+};
+
+//varibles for formatting
+var formattedlastSchool = HTMLschoolName.replace("%data%", education.lastSchool);
+var formattedDatesAttended = HTMLschoolDates.replace("%data%", education.datesAttended);
+
+
+$("#education").append(HTMLschoolStart);
+$(".education-entry").append(formattedlastSchool, formattedDatesAttended);
