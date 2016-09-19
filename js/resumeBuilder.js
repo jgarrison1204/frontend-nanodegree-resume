@@ -11,7 +11,7 @@ var bio = {
 		"location": "Los Angeles"
 	},
 	"skills": ["Project Management", "CRM", "Data Analysis", "SQL", "Ruby", "VBA", "HTML", "CSS", "JS"],
-	"welcomeMessage": "Welcome!",
+	"welcomeMessage": "Welcome, please learn about my professional history.",
 	"picture": "images/fry.jpg",
 }
 
@@ -44,3 +44,29 @@ var education = {
 	]
 }
 
+var work = {
+	"jobs":[
+		{
+			"employer": "California State University, Los Angeles", 
+		   	"title": "Senior Data Analyst", 
+		   	"location": "Los Angeles, CA", 
+		   	"dates": "2014-Present", 
+		   	"description": "Created a culture of data driven decision making and accountability through: implementing a CRM system, designing workflows, Marcom and business process for 100 professionals, completed analytic studies and presented results with engaging and interactive visualizations for all levels of the organization." 			
+		},
+		{
+		   	"employer": "Paramount Pictures", 
+		   	"title": "Manager, Marketing Research and Strategy", 
+		   	"location": "Hollywood, CA", 
+		   	"dates": "2012-2013", 
+		   	"description": "Advised movie executives, film-makers and creatives on audience reaction to films, trailers and T.V. spots.  Offered consultative insights to track and improve performance of marketing materials and film editing." 
+
+		},
+		{
+			"employer": "Lieberman Research Worldwide", 
+		   	"title": "Research Manager", 
+		   	"location": "Beverly Hills, CA", 
+		   	"dates": "2011-2012", 
+		   	"description": "Lead project manager and consultant for numerous Fortune 500 clients across verticals charged with ensuring strong margins for our boss and actionable insights for our clients." 
+		}
+	]
+}
