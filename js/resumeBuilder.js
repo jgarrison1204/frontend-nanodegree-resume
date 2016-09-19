@@ -70,3 +70,15 @@ var work = {
 		}
 	]
 }
+
+var projects = {
+		"projects": [
+			{
+				"title": "Portfiolio",
+				"dates": "2016",
+				"description": "An responsive website that contains recent projects I've worked on.",
+				"images": ["http://placehold.it/200x150","http://placehold.it/200x150"]
+			}
+		]
+
+}
