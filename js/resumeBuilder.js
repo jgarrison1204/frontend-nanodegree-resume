@@ -77,39 +77,8 @@ var projects = {
 				"title": "Portfiolio",
 				"dates": "2016",
 				"description": "An responsive website that contains recent projects I've worked on.",
-				"images": ["http://placehold.it/200x150","http://placehold.it/200x150"]
+				"images": []
 			}
 		]
 
 }
-
-/*for in loop for appending employer and job title to web page.
-"job" is the variable that is iterally the value in the array (0,1,2) not the content of the array. work is the variable jobs is an array of objects. 
-*/
-function displayWork(){
-	for (job in work.jobs){
-		if (work.jobs.hasOwnProperty(job)) {
-			//populates the work workExperience container
-			$("#workExperience").append(HTMLworkStart);
-			//creates varaible for employer name to replace data in helper file.
-			var EmployerFormatted = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-			//creates varaible for job title name to replace data in helper file.
-			var TitleFormatted = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-			//concatinates the varibles so they appear on the same line
-			var formattedEmployerTitle = EmployerFormatted + TitleFormatted;
-			var formattedHTMLworkDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
-			var formattedHTMLworkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-			var formattedHTMLworkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-			//adds last here because append acts on each element in the set of matched elements. So if you have three .work-entry divs and you do a workStuff.append('.work-entry) statement, append will add workStuff to all of the .work-entry divs that exist when the statement is run. Using :last restricts the selector to consider only the last matching element. So the first time through the loop, the first (and only) .work-entry div is the last .work-entry div:
-			$(".work-entry:last").append(formattedEmployerTitle, formattedHTMLworkDates,formattedHTMLworkLocation,formattedHTMLworkDescription);
-		}
-	}
-};
-
-displayWork();
-
-for(job in work.jobs){
-	if (work.jobs.hasOwnProperty(job)){
-		console.log(work.jobs[job]);
-	}
-};
