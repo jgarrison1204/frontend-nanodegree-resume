@@ -76,7 +76,7 @@ var projects = {
 				"title": "Portfiolio",
 				"dates": "2016",
 				"description": "An responsive website that contains recent projects I've worked on.",
-				"images": []
+				"images": ["http://placehold.it/200x150","http://placehold.it/200x150"]
 			}
 		]
 }
@@ -99,7 +99,24 @@ bio.display = function(){
 	})
 	$("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
 	$("#header").prepend(formattedName, formattedRole);
-
 };
 
+work.display = function(){
+	work.jobs.forEach(function(job){
+		//populates the work workExperience container
+		$("#workExperience").append(HTMLworkStart);
+		//creates varaible for attributes to replace data in helper file.
+		employerFormatted = HTMLworkEmployer.replace("%data%", job.employer);
+		titleFormatted = HTMLworkTitle.replace("%data%", job.title);
+		formattedHTMLworkDates = HTMLworkDates.replace("%data%",job.dates);
+		formattedHTMLworkLocation = HTMLworkLocation.replace("%data%", job.location);
+		formattedHTMLworkDescription = HTMLworkDescription.replace("%data%", job.description);
+		//concatinates the varibles so they appear on the same line
+		formattedEmployerTitle = employerFormatted + titleFormatted;
+		$(".work-entry:last").append(formattedEmployerTitle, formattedHTMLworkDates,formattedHTMLworkLocation,formattedHTMLworkDescription);
+	})
+};
+
+//calls functions and renders html to the page
 bio.display ();
+work.display();
