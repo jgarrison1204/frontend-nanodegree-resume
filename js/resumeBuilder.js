@@ -1,6 +1,8 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
+
+ // JSON objects containing data to populate resume
 var bio = {
 	"name": "Jacob Garrison",
 	"role": "Web Developer",
@@ -10,11 +12,10 @@ var bio = {
 		"github":  "jgarrison1204",
 		"location": "Los Angeles"
 	},
-	"skills": ["Project Management", "CRM", "Data Analysis", "SQL", "Ruby", "VBA", "HTML", "CSS", "JS"],
+	"skills": ["Project Management", "CRM", "Data Analysis", "Process Builder"],
 	"welcomeMessage": "Welcome, please learn about my professional history.",
 	"picture": "images/fry.jpg",
 }
-
 var education = {
 	"schools":[
 	{
@@ -43,7 +44,6 @@ var education = {
 	}
 	]
 }
-
 var work = {
 	"jobs":[
 		{
@@ -70,7 +70,6 @@ var work = {
 		}
 	]
 }
-
 var projects = {
 		"projects": [
 			{
@@ -80,5 +79,27 @@ var projects = {
 				"images": []
 			}
 		]
-
 }
+
+//encapsulated function => display that renders header element and bio data.
+bio.display = function(){
+	//creating variables to replace "%data%" text in HTML located in helper.js file.
+	formattedName = HTMLheaderName.replace("%data%", bio.name);
+	formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+	$("#header").append(formattedBioPic,formattedWelcomeMsg, HTMLskillsStart);
+	bio.skills.forEach(function(skill){
+		formattedSkills = HTMLskills.replace("%data%", skill);
+		$("#skills:last").append(formattedSkills);
+	})
+	$("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+	$("#header").prepend(formattedName, formattedRole);
+
+};
+
+bio.display ();
