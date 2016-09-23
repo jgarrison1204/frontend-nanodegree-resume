@@ -117,6 +117,24 @@ work.display = function(){
 	})
 };
 
+projects.display = function(){
+	projects.projects.forEach(function(projectKey){
+		formattedTitle = HTMLprojectTitle.replace("%data%", projectKey.title);
+		formattedDates = HTMLprojectDates.replace("%data%", projectKey.dates);		
+		formattedDesc = HTMLprojectDescription.replace("%data%", projectKey.description);
+		$("#projects").append(HTMLprojectStart);
+		$(".project-entry:last").append(formattedTitle);
+		$(".project-entry:last").append(formattedDates);
+		$(".project-entry:last").append(formattedDesc);
+		console.log(projectKey.images[0]);
+		projectKey.images.forEach(function(imageArry){
+			fomrattedImages = HTMLprojectImage.replace("%data%", imageArry);
+			$(".project-entry:last").append(fomrattedImages);
+		})
+	})
+};
+
 //calls functions and renders html to the page
 bio.display ();
 work.display();
+projects.display();
