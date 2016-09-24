@@ -20,8 +20,8 @@ var education = {
 	"schools":[
 	{
 		"name": "University of Chicago",
+		"degree": "M.A.",
 		"location": "Chicago",
-		"degree": "M.A.,",
 		"majors": ["Social Sciences"],
 		"dates": "2008-2009",
 		"url": "http://www.uchicago.edu/"
@@ -71,14 +71,14 @@ var work = {
 	]
 }
 var projects = {
-		"projects": [
-			{
-				"title": "Portfiolio",
-				"dates": "2016",
-				"description": "An responsive website that contains recent projects I've worked on.",
-				"images": ["http://placehold.it/200x150","http://placehold.it/200x150"]
-			}
-		]
+	"projects": [
+		{
+			"title": "Portfiolio",
+			"dates": "2016",
+			"description": "An responsive website that contains recent projects I've worked on.",
+			"images": ["http://placehold.it/200x150","http://placehold.it/200x150"]
+		}
+	]
 }
 
 //encapsulated function => display that renders header element and bio data.
@@ -126,7 +126,6 @@ projects.display = function(){
 		$(".project-entry:last").append(formattedTitle);
 		$(".project-entry:last").append(formattedDates);
 		$(".project-entry:last").append(formattedDesc);
-		console.log(projectKey.images[0]);
 		projectKey.images.forEach(function(imageArry){
 			fomrattedImages = HTMLprojectImage.replace("%data%", imageArry);
 			$(".project-entry:last").append(fomrattedImages);
@@ -134,7 +133,32 @@ projects.display = function(){
 	})
 };
 
+education.display = function(){
+		$("#education").append(HTMLschoolStart);
+			education.schools.forEach(function(school){
+			formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
+			formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
+			formattedSchoolAndDegree = formattedSchoolName + formattedSchoolDegree;
+			formattedDatesAttended = HTMLschoolDates.replace("%data%", school.dates);
+			formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
+			$(".education-entry:last").append(formattedSchoolAndDegree, formattedDatesAttended, formattedLocation);
+			school.majors.forEach(function(major){
+				formattedSchoolMajor = HTMLschoolMajor.replace("%data%", major);
+				$(".education-entry:last").append(formattedSchoolMajor);
+			})
+		})
+		$(".education-entry:last").append(HTMLonlineClasses);
+		education.onlineCourses.forEach(function(onlineclass){
+			formattedTitle = HTMLonlineTitle.replace("%data%", onlineclass.title);
+			formattedSchool = HTMLonlineSchool.replace("%data%", onlineclass.school);
+			formattedTitleAndSchool = formattedTitle + formattedSchool;
+			formattedDates = HTMLonlineDates.replace("%data%", onlineclass.dates);
+			formattedUrl = HTMLonlineURL.replace("%data%", onlineclass.url);
+			$(".education-entry:last").append(formattedTitleAndSchool, formattedDates, formattedUrl);
+	})
+};
 //calls functions and renders html to the page
 bio.display ();
 work.display();
 projects.display();
+education.display();
