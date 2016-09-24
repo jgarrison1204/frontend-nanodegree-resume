@@ -97,7 +97,7 @@ bio.display = function(){
 		formattedSkills = HTMLskills.replace("%data%", skill);
 		$("#skills:last").append(formattedSkills);
 	})
-	$("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+	$("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
 	$("#header").prepend(formattedName, formattedRole);
 };
 
@@ -157,6 +157,7 @@ education.display = function(){
 			$(".education-entry:last").append(formattedTitleAndSchool, formattedDates, formattedUrl);
 	})
 };
+$("#mapDiv").append(googleMap);
 //calls functions and renders html to the page
 bio.display ();
 work.display();
