@@ -13,7 +13,7 @@ var bio = {
 	},
 	"skills": ["Project Management", "CRM", "Data Analysis", "Process Builder"],
 	"welcomeMessage": "Welcome, please learn about my professional history.",
-	"picture": "images/fry.jpg",
+	"biopic": "images/fry.jpg",
 };
 var education = {
 	"schools": [{
@@ -77,7 +77,7 @@ bio.display = function() {
 	formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-	formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+	formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 	$("#header").append(formattedBioPic, formattedWelcomeMsg, HTMLskillsStart);
 	bio.skills.forEach(function(skill) {
 		formattedSkills = HTMLskills.replace("%data%", skill);
@@ -125,6 +125,7 @@ education.display = function() {
 		formattedDatesAttended = HTMLschoolDates.replace("%data%", school.dates);
 		formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
 		$(".education-entry:last").append(formattedSchoolAndDegree, formattedDatesAttended, formattedLocation);
+		// $("a").attr("href", school.url);
 		school.majors.forEach(function(major) {
 			formattedSchoolMajor = HTMLschoolMajor.replace("%data%", major);
 			$(".education-entry:last").append(formattedSchoolMajor);
