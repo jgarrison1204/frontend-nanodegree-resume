@@ -122,6 +122,7 @@ education.display = function() {
 		formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
 		formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
 		formattedSchoolAndDegree = formattedSchoolName + formattedSchoolDegree;
+		formattedSchoolAndDegree = formattedSchoolAndDegree.replace("#", school.url);
 		formattedDatesAttended = HTMLschoolDates.replace("%data%", school.dates);
 		formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
 		$(".education-entry:last").append(formattedSchoolAndDegree, formattedDatesAttended, formattedLocation);
